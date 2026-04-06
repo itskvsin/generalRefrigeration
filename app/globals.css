@@ -93,18 +93,6 @@ body {
     font-size: 12px !important;
   }
 
-  .site-nav__menu-btn {
-    display: inline-flex !important;
-    align-items: center;
-    justify-content: center;
-    font-size: 22px;
-    line-height: 1;
-  }
-
-  .site-nav__mobile-menu {
-    display: flex !important;
-  }
-
   .hero-section {
     padding: 6.5rem 1rem 3rem !important;
   }
