@@ -61,7 +61,7 @@ export default function Reviews() {
   }, [])
 
   return (
-    <section id="reviews" ref={sectionRef} style={{
+    <section id="reviews" ref={sectionRef} className="reviews-section" style={{
       padding: '6rem 0 6rem 3rem',
       background: 'var(--ink)',
       overflow: 'hidden',
@@ -85,7 +85,7 @@ export default function Reviews() {
         503 verified reviews · 4.9 average on Yelp
       </p>
 
-      <div ref={trackRef} style={{
+      <div ref={trackRef} className="reviews-track" style={{
         display: 'flex', gap: '1.5rem',
         overflowX: 'auto', paddingRight: '3rem', paddingBottom: '1rem',
         scrollbarWidth: 'none',
@@ -94,6 +94,7 @@ export default function Reviews() {
           <div
             key={i}
             ref={el => { if (el) cardsRef.current[i] = el }}
+            className="review-card"
             style={{
               minWidth: '340px', maxWidth: '340px',
               background: 'rgba(255,255,255,0.04)',
@@ -114,7 +115,7 @@ export default function Reviews() {
               fontSize: '18px', fontStyle: 'italic', lineHeight: 1.65,
               color: 'rgba(245, 240, 232, 0.85)', marginBottom: '1.5rem',
             }}>
-              "{r.text}"
+              &ldquo;{r.text}&rdquo;
             </p>
             <div>
               <div style={{ fontSize: '13px', fontWeight: 500, color: 'var(--cream)' }}>{r.author}</div>

@@ -37,7 +37,7 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" ref={sectionRef} style={{
+    <section id="contact" ref={sectionRef} className="contact-section" style={{
       padding: '6rem 3rem',
       borderTop: '1px solid var(--warm-line)',
       display: 'grid',
@@ -46,7 +46,7 @@ export default function Contact() {
       alignItems: 'start',
     }}>
       {/* Left */}
-      <div ref={leftRef}>
+      <div ref={leftRef} className="contact-left">
         <div style={{
           fontSize: '11px', fontWeight: 500, letterSpacing: '1.5px',
           textTransform: 'uppercase', color: 'var(--ink-faint)', marginBottom: '1.5rem',
@@ -77,7 +77,7 @@ export default function Contact() {
             { label: 'Service Area', value: 'Oakland & East Bay, CA', href: null },
             { label: 'Hours', value: 'Mon – Sat, 9am – 6pm', href: null },
           ].map(item => (
-            <div key={item.label} style={{ display: 'flex', gap: '2rem', alignItems: 'baseline', borderBottom: '1px solid var(--cream-dark)', paddingBottom: '1.25rem' }}>
+            <div key={item.label} className="contact-detail-row" style={{ display: 'flex', gap: '2rem', alignItems: 'baseline', borderBottom: '1px solid var(--cream-dark)', paddingBottom: '1.25rem' }}>
               <span style={{ fontSize: '11px', textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--ink-faint)', minWidth: '80px' }}>
                 {item.label}
               </span>
@@ -94,7 +94,7 @@ export default function Contact() {
       </div>
 
       {/* Right — form */}
-      <div ref={rightRef} style={{
+      <div ref={rightRef} className="contact-form-card" style={{
         background: 'white', borderRadius: '24px', padding: '3rem',
         border: '1px solid var(--cream-dark)',
         boxShadow: '0 20px 50px rgba(26,24,20,0.06)',

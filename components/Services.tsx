@@ -71,7 +71,7 @@ export default function Services() {
   }, [])
 
   return (
-    <section id="services" ref={sectionRef} style={{
+    <section id="services" ref={sectionRef} className="services-section" style={{
       padding: '6rem 3rem',
       borderTop: '1px solid var(--warm-line)',
     }}>
@@ -85,7 +85,7 @@ export default function Services() {
         What we <em style={{ fontStyle: 'italic', color: 'var(--cold-accent)' }}>fix</em>
       </h2>
 
-      <div style={{
+      <div className="services-grid" style={{
         display: 'grid',
         gridTemplateColumns: 'repeat(3, 1fr)',
         gap: '0',
@@ -95,6 +95,7 @@ export default function Services() {
           <div
             key={s.num}
             ref={el => { if (el) itemsRef.current[i] = el }}
+            className="service-card"
             style={{
               padding: '2.5rem',
               borderRight: (i + 1) % 3 !== 0 ? '1px solid var(--warm-line)' : 'none',
