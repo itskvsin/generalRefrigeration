@@ -1,12 +1,12 @@
 export default function Footer() {
   return (
-    <footer style={{
+    <footer className="site-footer" style={{
       background: 'var(--ink)', color: 'var(--cream)',
       padding: '3rem',
       display: 'flex', justifyContent: 'space-between', alignItems: 'center',
       borderTop: '1px solid rgba(255,255,255,0.06)',
     }}>
-      <div>
+      <div className="site-footer__brand">
         <div style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: '18px', marginBottom: '0.5rem' }}>
           General <em style={{ fontStyle: 'italic', color: 'var(--cold)' }}>Refrigeration</em> Service Co.
         </div>
@@ -14,7 +14,7 @@ export default function Footer() {
           Oakland & East Bay, California
         </div>
       </div>
-      <div style={{ textAlign: 'right' }}>
+      <div className="site-footer__contact" style={{ textAlign: 'right' }}>
         <a href="tel:5106521302" style={{
           fontFamily: 'Cormorant Garamond, serif', fontSize: '22px',
           color: 'var(--cream)', textDecoration: 'none',

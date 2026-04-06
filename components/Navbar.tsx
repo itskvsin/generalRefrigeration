@@ -1,9 +1,10 @@
 'use client'
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { gsap } from 'gsap'
 
 export default function Navbar() {
   const navRef = useRef<HTMLElement>(null)
+  const [mobileOpen, setMobileOpen] = useState(false)
 
   useEffect(() => {
     gsap.fromTo(navRef.current,
@@ -13,7 +14,7 @@ export default function Navbar() {
   }, [])
 
   return (
-    <nav ref={navRef} style={{
+    <nav ref={navRef} className="site-nav" style={{
       position: 'fixed', top: 0, left: 0, right: 0, zIndex: 100,
       padding: '1.25rem 3rem',
       display: 'flex', justifyContent: 'space-between', alignItems: 'center',
@@ -21,12 +22,12 @@ export default function Navbar() {
       backdropFilter: 'blur(12px)',
       borderBottom: '1px solid var(--warm-line)',
     }}>
-      <div style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: '18px', fontWeight: 400, letterSpacing: '0.02em' }}>
+      <div className="site-nav__brand" style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: '18px', fontWeight: 400, letterSpacing: '0.02em' }}>
         General <span style={{ fontStyle: 'italic', color: 'var(--ink-muted)' }}>Refrigeration</span>
       </div>
-      <div style={{ display: 'flex', gap: '2.5rem', alignItems: 'center' }}>
+      <div className="site-nav__actions" style={{ display: 'flex', gap: '2.5rem', alignItems: 'center' }}>
         {['Services', 'Reviews', 'Contact'].map(item => (
-          <a key={item} href={`#${item.toLowerCase()}`} style={{
+          <a key={item} href={`#${item.toLowerCase()}`} className="site-nav__link" style={{
             fontSize: '13px', fontWeight: 400, letterSpacing: '0.08em', textTransform: 'uppercase',
             color: 'var(--ink-muted)', textDecoration: 'none', transition: 'color 0.2s',
           }}
@@ -34,7 +35,7 @@ export default function Navbar() {
             onMouseLeave={e => (e.currentTarget.style.color = 'var(--ink-muted)')}
           >{item}</a>
         ))}
-        <a href="tel:5106521302" style={{
+        <a href="tel:5106521302" className="site-nav__cta" style={{
           fontSize: '13px', fontWeight: 500, letterSpacing: '0.06em',
           background: 'var(--ink)', color: 'var(--cream)',
           padding: '10px 22px', borderRadius: '100px', textDecoration: 'none',
@@ -43,7 +44,81 @@ export default function Navbar() {
           onMouseEnter={e => (e.currentTarget.style.background = 'var(--cold-accent)')}
           onMouseLeave={e => (e.currentTarget.style.background = 'var(--ink)')}
         >(510) 652-1302</a>
+        <button
+          className="site-nav__menu-btn"
+          type="button"
+          aria-label="Toggle navigation menu"
+          aria-expanded={mobileOpen}
+          onClick={() => setMobileOpen(prev => !prev)}
+          style={{
+            border: '1px solid var(--warm-line)',
+            borderRadius: '10px',
+            background: 'transparent',
+            color: 'var(--ink)',
+            width: '38px',
+            height: '38px',
+            cursor: 'pointer',
+            display: 'none',
+          }}
+        >
+          {mobileOpen ? '×' : '☰'}
+        </button>
       </div>
+
+      {mobileOpen && (
+        <div className="site-nav__mobile-menu" style={{
+          position: 'absolute',
+          top: '100%',
+          left: '1rem',
+          right: '1rem',
+          marginTop: '0.75rem',
+          background: 'rgba(245, 240, 232, 0.98)',
+          border: '1px solid var(--warm-line)',
+          borderRadius: '14px',
+          padding: '1rem',
+          display: 'none',
+          flexDirection: 'column',
+          gap: '0.75rem',
+          boxShadow: '0 12px 30px rgba(26,24,20,0.12)',
+        }}>
+          {['Services', 'Reviews', 'Contact'].map(item => (
+            <a
+              key={`mobile-${item}`}
+              href={`#${item.toLowerCase()}`}
+              onClick={() => setMobileOpen(false)}
+              style={{
+                fontSize: '13px',
+                fontWeight: 500,
+                letterSpacing: '0.07em',
+                textTransform: 'uppercase',
+                color: 'var(--ink-muted)',
+                textDecoration: 'none',
+                padding: '0.5rem 0',
+                borderBottom: '1px solid var(--cream-dark)',
+              }}
+            >
+              {item}
+            </a>
+          ))}
+          <a
+            href="tel:5106521302"
+            style={{
+              marginTop: '0.25rem',
+              fontSize: '13px',
+              fontWeight: 500,
+              letterSpacing: '0.05em',
+              textDecoration: 'none',
+              background: 'var(--ink)',
+              color: 'var(--cream)',
+              borderRadius: '999px',
+              padding: '0.65rem 0.9rem',
+              textAlign: 'center',
+            }}
+          >
+            Call (510) 652-1302
+          </a>
+        </div>
+      )}
     </nav>
   )
 }
