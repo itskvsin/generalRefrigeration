@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Syne:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --cream: #F5F0E8;
+  --cream-dark: #EDE7D9;
+  --ink: #1A1814;
+  --ink-muted: #5C5750;
+  --ink-faint: #9B948A;
+  --cold: #C8DDE8;
+  --cold-deep: #4A7A94;
+  --cold-accent: #2E5F75;
+  --warm-line: #D4C4A0;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--cream);
+  color: var(--ink);
+  font-family: 'Syne', sans-serif;
+  font-weight: 300;
+  overflow-x: hidden;
+}
+
+::selection { background: var(--cold); color: var(--ink); }
+.font-display { font-family: 'Cormorant Garamond', serif; }
+
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--cream); }
+::-webkit-scrollbar-thumb { background: var(--warm-line); border-radius: 2px; }
