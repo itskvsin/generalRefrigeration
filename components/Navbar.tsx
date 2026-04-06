@@ -13,7 +13,7 @@ export default function Navbar() {
   }, [])
 
   return (
-    <nav ref={navRef} style={{
+    <nav ref={navRef} className="site-nav" style={{
       position: 'fixed', top: 0, left: 0, right: 0, zIndex: 100,
       padding: '1.25rem 3rem',
       display: 'flex', justifyContent: 'space-between', alignItems: 'center',
@@ -21,12 +21,12 @@ export default function Navbar() {
       backdropFilter: 'blur(12px)',
       borderBottom: '1px solid var(--warm-line)',
     }}>
-      <div style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: '18px', fontWeight: 400, letterSpacing: '0.02em' }}>
+      <div className="site-nav__brand" style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: '18px', fontWeight: 400, letterSpacing: '0.02em' }}>
         General <span style={{ fontStyle: 'italic', color: 'var(--ink-muted)' }}>Refrigeration</span>
       </div>
-      <div style={{ display: 'flex', gap: '2.5rem', alignItems: 'center' }}>
+      <div className="site-nav__actions" style={{ display: 'flex', gap: '2.5rem', alignItems: 'center' }}>
         {['Services', 'Reviews', 'Contact'].map(item => (
-          <a key={item} href={`#${item.toLowerCase()}`} style={{
+          <a key={item} href={`#${item.toLowerCase()}`} className="site-nav__link" style={{
             fontSize: '13px', fontWeight: 400, letterSpacing: '0.08em', textTransform: 'uppercase',
             color: 'var(--ink-muted)', textDecoration: 'none', transition: 'color 0.2s',
           }}
@@ -34,7 +34,7 @@ export default function Navbar() {
             onMouseLeave={e => (e.currentTarget.style.color = 'var(--ink-muted)')}
           >{item}</a>
         ))}
-        <a href="tel:5106521302" style={{
+        <a href="tel:5106521302" className="site-nav__cta" style={{
           fontSize: '13px', fontWeight: 500, letterSpacing: '0.06em',
           background: 'var(--ink)', color: 'var(--cream)',
           padding: '10px 22px', borderRadius: '100px', textDecoration: 'none',

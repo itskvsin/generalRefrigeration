@@ -70,7 +70,7 @@ export default function Hero() {
   }, [])
 
   return (
-    <section ref={sectionRef} style={{
+    <section ref={sectionRef} className="hero-section" style={{
       minHeight: '100vh',
       padding: '9rem 3rem 5rem',
       display: 'grid',
@@ -89,7 +89,7 @@ export default function Hero() {
       }} />
 
       {/* Left — main content */}
-      <div style={{ position: 'relative', zIndex: 1 }}>
+      <div className="hero-main" style={{ position: 'relative', zIndex: 1 }}>
 
         <div ref={badgeRef} style={{
           display: 'inline-flex', alignItems: 'center', gap: '8px',
@@ -102,7 +102,7 @@ export default function Hero() {
           </span>
         </div>
 
-        <h1 ref={headingRef} style={{
+        <h1 ref={headingRef} className="hero-heading" style={{
           fontFamily: 'Cormorant Garamond, serif',
           fontSize: 'clamp(52px, 7vw, 88px)',
           fontWeight: 300,
@@ -116,17 +116,17 @@ export default function Hero() {
           not next week.
         </h1>
 
-        <p ref={subRef} style={{
+        <p ref={subRef} className="hero-subtext" style={{
           fontSize: '16px', lineHeight: 1.75, color: 'var(--ink-muted)',
           maxWidth: '460px', marginBottom: '2.5rem', fontWeight: 300,
         }}>
-          Gary Cain has been Oakland's trusted refrigerator specialist for decades.
+          Gary Cain has been Oakland&apos;s trusted refrigerator specialist for decades.
           Same-day service, 90% of parts already on the truck, and 503 five-star reviews
           from real neighbors.
         </p>
 
-        <div ref={ctaRef} style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
-          <a href="tel:5106521302" style={{
+        <div ref={ctaRef} className="hero-cta-row" style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
+          <a href="tel:5106521302" className="hero-primary-cta" style={{
             background: 'var(--ink)', color: 'var(--cream)',
             fontFamily: 'Syne, sans-serif', fontSize: '14px', fontWeight: 500,
             letterSpacing: '0.04em', padding: '14px 32px', borderRadius: '100px',
@@ -138,7 +138,7 @@ export default function Hero() {
           >
             Call (510) 652-1302
           </a>
-          <a href="#contact" style={{
+          <a href="#contact" className="hero-secondary-cta" style={{
             fontSize: '14px', color: 'var(--ink-muted)', textDecoration: 'none',
             borderBottom: '1px solid var(--warm-line)', paddingBottom: '2px',
             transition: 'color 0.2s',
@@ -156,10 +156,10 @@ export default function Hero() {
       </div>
 
       {/* Right — rating card + floating temp */}
-      <div ref={ratingRef} style={{ position: 'relative', zIndex: 1 }}>
+      <div ref={ratingRef} className="hero-side" style={{ position: 'relative', zIndex: 1 }}>
 
         {/* Floating cold temp badge */}
-        <div ref={tempRef} style={{
+        <div ref={tempRef} className="hero-temp-badge" style={{
           position: 'absolute', top: '-2rem', right: '-1rem',
           background: 'var(--cold-deep)', color: 'var(--cream)',
           borderRadius: '16px', padding: '12px 20px',
@@ -171,7 +171,7 @@ export default function Hero() {
         </div>
 
         {/* Rating card */}
-        <div style={{
+        <div className="hero-rating-card" style={{
           background: 'white', borderRadius: '24px',
           padding: '2.5rem', border: '1px solid var(--cream-dark)',
           boxShadow: '0 30px 60px rgba(26, 24, 20, 0.08)',
@@ -184,7 +184,7 @@ export default function Hero() {
             ))}
           </div>
 
-          <div style={{
+          <div className="hero-rating-value" style={{
             fontFamily: 'Cormorant Garamond, serif', fontSize: '72px',
             fontWeight: 300, lineHeight: 1, marginBottom: '0.25rem',
             color: 'var(--ink)',
@@ -195,7 +195,7 @@ export default function Hero() {
           </div>
 
           {/* Review quote */}
-          <div style={{
+          <div className="hero-stats-row" style={{
             borderTop: '1px solid var(--cream-dark)', paddingTop: '1.5rem',
           }}>
             <p style={{
@@ -203,7 +203,7 @@ export default function Hero() {
               fontStyle: 'italic', lineHeight: 1.65, color: 'var(--ink-muted)',
               marginBottom: '1rem',
             }}>
-              "Gary answered immediately, happened to be in the area, and came within 10 minutes. He correctly predicted the problem before even opening the door."
+              &ldquo;Gary answered immediately, happened to be in the area, and came within 10 minutes. He correctly predicted the problem before even opening the door.&rdquo;
             </p>
             <div style={{ fontSize: '12px', fontWeight: 500, color: 'var(--ink)', letterSpacing: '0.06em', textTransform: 'uppercase' }}>
               — Barry G., Oakland CA
